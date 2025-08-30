@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request
 from google import genai
 from google.genai import types
-from app.utils.config import settings
+from utils.config import settings
 
 router = APIRouter(
     prefix="/generate_gloss"
