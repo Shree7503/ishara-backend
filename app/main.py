@@ -2,24 +2,18 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers import gloss
 
-# @asynccontextmanager
-# async def lifespan(app: FastAPI):
-#     print("Starting DB...")
-#     print(settings.DATABASE_URI)
-#
-#     database.create_db_and_tables()
-#
-#     yield
-#
-#     print("Shutting Down")
-
 app = FastAPI(
     title="Ishara",
 )
 
+origins = [
+    "http://localhost:3000",
+    "https://sign-speak-show-website.vercel.app/",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
